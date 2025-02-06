@@ -66,7 +66,8 @@ int main() {
   v.width = 640;
   v.height = 480;
 
-  atexit(SDL_Quit);
+  if (atexit(SDL_Quit))
+		return EXIT_FAILURE;
 
   v.screen = SDL_CreateWindow("First SDL triangle", SDL_WINDOWPOS_UNDEFINED,
                               SDL_WINDOWPOS_UNDEFINED, v.width, v.height,
