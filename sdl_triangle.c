@@ -7,10 +7,6 @@
 
 #include <SDL2/SDL.h>
 
-#if defined(_WIN32) || defined(WIN32)
-#include <windows.h>
-#endif
-
 struct ViewPort {
   int width, height;
   SDL_Window *screen;
@@ -58,11 +54,7 @@ void renderTriangle(SDL_Renderer *ren) {
   SDL_RenderGeometry(ren, NULL, vertices, 3, NULL, 0);
 }
 
-#if defined(_WIN32) || defined(WIN32)
-int WinMain(HINSTANCE h, HINSTANCE g, LPSTR s, int n) {
-#else
 int main() {
-#endif
   struct ViewPort v;
   SDL_RendererInfo nfo;
   int res;
