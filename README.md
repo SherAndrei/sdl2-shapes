@@ -1,6 +1,6 @@
 ## Basic shapes using Simple DirectMedia Layer 2.0
 
-#### Installing SDL2
+### Installing SDL2
 
 This project uses latest build of SDL2[^1]. Here is how you can obtain it[^2]
 ```bash
@@ -16,7 +16,7 @@ sudo make install
 By default this sequence installs SDL2 into `/usr/local`, this is why this path
 is used for locating include and library files.
 
-#### Building project
+### Building project
 
 This project builds at std=c++17 with [FASTBuild](https://fastbuild.org/docs/home.html)
 
@@ -24,13 +24,25 @@ This project builds at std=c++17 with [FASTBuild](https://fastbuild.org/docs/hom
 fbuild
 ```
 
-#### Running project
+### Running project
 
 All executable files are located in `out` folder
 
 ```bash
 ./out/sdl2_shapes
 ```
+
+**Description**
+
+After start of the application you are presented with white canvas.
+You can fill this canvas with basic shapes by pressing one of the next keys
+* <button>S</button> creates sphere
+* <button>T</button> creates triangle
+* <button>R</button> creates rectangle
+
+**Preview**
+
+![preview](preview.gif)
 
 [^1]: prebuilt binaries for Ubuntu 20.04.6 LTS have outdated version  
 [^2]: according to [official documentation](https://wiki.libsdl.org/SDL2/Installation)
