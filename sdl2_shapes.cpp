@@ -15,6 +15,8 @@ class Initializer {
       throw std::runtime_error(SDL_GetError());
     }
   }
+  Initializer(const Initializer&) = delete;
+  Initializer& operator=(const Initializer&) = delete;
   ~Initializer() { SDL_Quit(); }
 };
 
