@@ -1,0 +1,47 @@
+
+.BuildPath = 'tmp'
+.OutputPath = 'out'
+
+.gcc_bin = '/usr/bin/x86_64-linux-gnu-gcc-9'
+
+.Compiler           = '$gcc_bin$'
+.CompilerOptions    = '"%1"'
+                    + ' -o "%2"'
+                    + ' -c'
+                    + ' -g'
+                    + ' -Wall'
+                    + ' -Werror'
+
+.Linker             = '$gcc_bin$'
+.LinkerOptions      = ' -o "%2"'
+                    + ' "%1"'
+                    + ' -L/usr/local/lib'
+                    + ' -Wl,-rpath=/usr/local/lib'
+.Libraries = {}
+
+.ProjectName = 'sdl_triangle'
+.ProjectPath = '.'
+
+.SourcePath = .ProjectPath
+.SourceFiles = '$SourcePath$/$ProjectName$.c'
+
+.CompilerOptions + ' -I/usr/local/include/SDL2'
+.LinkerOptions + ' -lSDL2'
+
+ObjectList('$ProjectName$-obj')
+{
+	.CompilerInputPath = .SourcePath
+	.CompilerInputFiles = .SourceFiles
+	.CompilerOutputPath = .BuildPath
+	^Libraries + { '$ProjectName$-obj' }
+	.Hidden = true
+}
+
+Executable( '$ProjectName$' )
+{
+    .LinkerOutput = '$OutputPath$\$ProjectName$'
+}
+
+Alias( 'all' ) {
+	.Targets = { '$ProjectName$' }
+}
