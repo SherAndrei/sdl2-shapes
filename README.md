@@ -18,7 +18,7 @@ is used for locating include and library files.
 
 #### Building project
 
-This project builds with [FASTBuild](https://fastbuild.org/docs/home.html)
+This project builds at std=c++17 with [FASTBuild](https://fastbuild.org/docs/home.html)
 
 ```bash
 fbuild
@@ -29,7 +29,7 @@ fbuild
 All executable files are located in `out` folder
 
 ```bash
-./out/sdl_triangle
+./out/sdl2_shapes
 ```
 
 [^1]: prebuilt binaries for Ubuntu 20.04.6 LTS have outdated version  

@@ -2,7 +2,7 @@
 .BuildPath = 'tmp'
 .OutputPath = 'out'
 
-.gcc_bin = '/usr/bin/x86_64-linux-gnu-gcc-9'
+.gcc_bin = '/usr/bin/x86_64-linux-gnu-g++-9'
 
 .Compiler           = '$gcc_bin$'
 .CompilerOptions    = '"%1"'
@@ -11,6 +11,7 @@
                     + ' -g'
                     + ' -Wall'
                     + ' -Werror'
+                    + ' -std=c++17'
 
 .Linker             = '$gcc_bin$'
 .LinkerOptions      = ' -o "%2"'
@@ -19,19 +20,18 @@
                     + ' -Wl,-rpath=/usr/local/lib'
 .Libraries = {}
 
-.ProjectName = 'sdl_triangle'
+.ProjectName = 'sdl2_shapes'
 .ProjectPath = '.'
 
 .SourcePath = .ProjectPath
-.SourceFiles = '$SourcePath$/$ProjectName$.c'
 
 .CompilerOptions + ' -I/usr/local/include/SDL2'
 .LinkerOptions + ' -lSDL2'
 
 ObjectList('$ProjectName$-obj')
 {
+	.CompilerInputPattern = { '*.cpp' }
 	.CompilerInputPath = .SourcePath
-	.CompilerInputFiles = .SourceFiles
 	.CompilerOutputPath = .BuildPath
 	^Libraries + { '$ProjectName$-obj' }
 	.Hidden = true
