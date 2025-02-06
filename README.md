@@ -1,5 +1,7 @@
 ## Basic shapes using Simple DirectMedia Layer 2.0
 
+![preview](preview.gif)
+
 ### Installing SDL2
 
 This project uses latest build of SDL2[^1]. Here is how you can obtain it[^2]
@@ -39,10 +41,6 @@ You can fill this canvas with basic shapes by pressing one of the next keys
 * <button>S</button> creates sphere
 * <button>T</button> creates triangle
 * <button>R</button> creates rectangle
-
-**Preview**
-
-![preview](preview.gif)
 
 [^1]: prebuilt binaries for Ubuntu 20.04.6 LTS have outdated version  
 [^2]: according to [official documentation](https://wiki.libsdl.org/SDL2/Installation)
